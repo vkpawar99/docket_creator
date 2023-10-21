@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .header {
+            margin: 50px 0;
+        }
+
+        .heading {
+            font-size: 36px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .subheading {
+            font-size: 18px;
+            color: #666666;
+        }
+
+        .button-container {
+            margin-top: 50px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .create-button {
+            background-color: #4caf50;
+            color: #ffffff;
+        }
+
+        .create-button:hover {
+            background-color: #45a049;
+        }
+
+        .view-button {
+            background-color: #008CBA;
+            color: #ffffff;
+        }
+
+        .view-button:hover {
+            background-color: #007A8B;
+        }
+    </style>
+</head>
+<body style="scale: 1.4;">
+    <br><br><br>
+    <div class="header">
+        <h1 class="heading">Welcome to the Docket Management System</h1>
+        <p class="subheading">Create and manage your docket records efficiently.</p>
+    </div>
+    
+    <div class="button-container">
+        <div class="button-group">
+            <button class="create-button" onclick="window.location.href='/create_docket'">Create a Docket</button>
+            <button class="view-button" onclick="window.location.href='/view_dockets'">View Created Dockets</button>
+        </div>
+    </div>
+</body>
+</html>

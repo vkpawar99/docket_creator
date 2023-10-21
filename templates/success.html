@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .success-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .success-icon {
+            color: #4CAF50;
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .success-message {
+            text-align: center;
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .home-button {
+            padding: 10px 20px;
+            border: none;
+            background: #4CAF50;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm3.94 5.196l-4.53 4.53a.5.5 0 0 1-.707 0L4.07 7.93a.5.5 0 0 1 .707-.708l2.12 2.12 4.12-4.12a.5.5 0 0 1 .706.708z" />
+            </svg>
+        </div>
+        <div class="success-message">
+            Docket successfully created!
+        </div>
+        <button class="home-button" onclick="window.location.href='/'">Back to Home</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dockets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .docket-container {
+            width: 60%;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .docket-container h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .back-button {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            background: #555555;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="docket-container">
+        <h2>List of Dockets</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Hours Worked</th>
+                <th>Rate Per Hour</th>
+                <th>Supplier Name</th>
+                <th>Purchase Order</th>
+            </tr>
+            {% for docket in dockets %}
+            <tr>
+                <td>{{ docket[1] }}</td>
+                <td>{{ docket[2] }}</td>
+                <td>{{ docket[3] }}</td>
+                <td>{{ docket[4] }}</td>
+                <td>{{ docket[5] }}</td>
+                <td>{{ docket[6] }}</td>
+                <td>{{ docket[7] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button class="back-button" onclick="window.location.href='/'">Back</button>
+    </div>
+</body>
+</html>

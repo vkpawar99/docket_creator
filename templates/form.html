@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Docket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .docket-container {
+            width: 50%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .docket-container h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            background: #4caf50;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="docket-container">
+        <h2>Create a Docket</h2>
+        <form method="post" class="form-container">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="start_time">Start Time:</label>
+                <input type="text" id="start_time" name="start_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="end_time">End Time:</label>
+                <input type="text" id="end_time" name="end_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hours_worked">Number of Hours Worked:</label>
+                <input type="text" id="hours_worked" name="hours_worked" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rate_per_hour">Rate Per Hour:</label>
+                <input type="text" id="rate_per_hour" name="rate_per_hour" required>
+            </div>
+
+            <div class="form-group">
+                
+            </div>
+
+            <div class="form-group">
+                <label for="supplier_name">Supplier Name:</label>
+                <select id="supplier_name" name="supplier_name" required onchange="updatePOs(this.value)">
+                    {% for supplier, pos in suppliers.items() %}
+                        <option value="{{ supplier }}">{{ supplier }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="purchase_order">Purchase Order:</label>
+                <select id="purchase_order" name="purchase_order" required>
+                </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / span 2;">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script>
+        function updatePOs(selectedSupplier) {
+        var pos = JSON.parse('{{ suppliers | tojson | safe }}');
+        var poDropdown = document.getElementById("purchase_order");
+        poDropdown.innerHTML = "";
+        pos[selectedSupplier].forEach(function(po) {
+            var option = document.createElement("option");
+            option.value = po;
+            option.text = po;
+            poDropdown.appendChild(option);
+        });
+    }
+
+        // Set default values and populate Purchase Order dropdown on page load
+        window.onload = function () {
+            var defaultSupplier = document.getElementById("supplier_name").value;
+            if (defaultSupplier) {
+                updatePOs(defaultSupplier);
+            }
+        };
+    </script>
+</body>
+</html>
